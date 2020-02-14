@@ -1,11 +1,21 @@
 var m = moment().format("MMMM Do YYYY");
-var x = 19;
+var x = 19; // why did i do this?
 document.getElementById("currentDay").textContent = m;
 
 var hours = ["9AM", "10AM", "11Am", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
 
 var currentTime = moment().format("HHmm");
 var militaryTime = parseInt(currentTime);
+
+function compare() {
+  if (z < militaryTime) {
+    titleCol.addClass("past");
+  } else if (z > militaryTime) {
+    titleCol.addClass("future");
+  } else {
+    titleCol.addClass("present");
+  }
+}
 
 for (var i = 0; i < hours.length; i++) {
   var newRow = $("<div>");
@@ -17,8 +27,8 @@ for (var i = 0; i < hours.length; i++) {
   hourCol;
   var titleCol = $("<div>");
   titleCol.addClass("col-10 textarea description timeblock");
-  titleCol.text("some text");
-  titleCol.val(900 + 100 * i);
+  z = 900 + 100 * i;
+  compare(z);
   var saveCol = $("<div>");
   saveCol.addClass("col-1 saveBtn");
   saveCol.append("<i class='fas fa-lock'></i>");
