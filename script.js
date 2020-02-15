@@ -17,6 +17,7 @@ function compare() {
 
 for (var i = 0; i < hours.length; i++) {
   var newRow = $("<div>");
+  var newBtn = $("<button>");
   newRow.addClass("row");
 
   var hourCol = $("<div>");
@@ -31,6 +32,9 @@ for (var i = 0; i < hours.length; i++) {
   var saveCol = $("<div>");
   saveCol.addClass("col-1 saveBtn");
   saveCol.append("<i class='fas fa-lock'></i>");
+  saveCol.click(function() {
+    console.log("working");
+  });
   newRow.append(hourCol, titleCol, saveCol);
   $("#calendar-view").append(newRow);
 }
