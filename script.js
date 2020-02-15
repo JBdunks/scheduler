@@ -23,9 +23,9 @@ for (var i = 0; i < hours.length; i++) {
   hourCol.text(hours[i]);
   hourCol.addClass("col-1 hour");
   hourCol;
-  var titleCol = $("<form>");
+  var titleCol = $("<textarea>");
   titleCol.addClass("col-10 textarea description timeblock");
-  //titleCol.append("<input>");
+
   z = 9 + i;
   compare(z);
   var saveCol = $("<div>");
