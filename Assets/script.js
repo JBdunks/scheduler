@@ -4,7 +4,7 @@ document.getElementById("currentDay").textContent = m;
 
 var hours = ["9AM", "10AM", "11Am", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
 
-var currentTime = moment().format("HHmm");
+var currentTime = moment().format("HH");
 var militaryTime = parseInt(currentTime);
 
 function compare() {
@@ -12,9 +12,7 @@ function compare() {
     titleCol.addClass("past");
   } else if (z > militaryTime) {
     titleCol.addClass("future");
-  } else {
-    titleCol.addClass("present");
-  }
+  } else if (z === militaryTime) titleCol.addClass("present");
 }
 
 for (var i = 0; i < hours.length; i++) {
@@ -25,9 +23,10 @@ for (var i = 0; i < hours.length; i++) {
   hourCol.text(hours[i]);
   hourCol.addClass("col-1 hour");
   hourCol;
-  var titleCol = $("<div>");
+  var titleCol = $("<form>");
   titleCol.addClass("col-10 textarea description timeblock");
-  z = 900 + 100 * i;
+  //titleCol.append("<input>");
+  z = 9 + i;
   compare(z);
   var saveCol = $("<div>");
   saveCol.addClass("col-1 saveBtn");
@@ -36,5 +35,6 @@ for (var i = 0; i < hours.length; i++) {
   $("#calendar-view").append(newRow);
 }
 
-console.log(moment().format("HHmm"));
 console.log(militaryTime);
+console.log(currentTime);
+console.log(z);
